@@ -8,7 +8,6 @@ import wiki from 'wikipedia';
 var blessed = require('blessed');
 import { wikiSummary, summaryError } from 'wikipedia';
 import { summary } from 'wikipedia';
-import { screen } from 'blessed';
 
 const _screen = blessed.screen({
     smartCSR: true,
