@@ -1,5 +1,5 @@
 {
-  "name": "shepherd-core",
+  "name": "autoanime",
   "version": "1.0.0",
   "main": "./lib/scrap.js",
   "author": "mishashto",
@@ -10,10 +10,14 @@
     "start": "babel src -d lib && node lib/scrap.js"
   },
   "dependencies": {
+    "axios": "^1.2.3",
+    "blessed": "^0.1.81",
     "colors": "^1.4.0",
-    "dotenv": "^16.0.1",
-    "puppeteer": "^16.1.1",
-    "ws": "^8.8.1"
+    "dotenv": "^16.0.3",
+    "easy-currencies": "^1.7.0",
+    "mongodb": "^4.13.0",
+    "vk-io": "^4.7.0",
+    "wikipedia": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",

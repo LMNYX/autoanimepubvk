@@ -23,6 +23,29 @@ export default class Output
     }
 }
 
+export class OutputFormatter
+{
+    static Log(sender="worker", ...message)
+    {
+        if(message.length < 1) return (`${"[log]".cyan}[sys] ${sender}`)
+        else return (`${"[log]".cyan}[${sender}] ${message.join(" ")}`);
+    }
+    static Warn(sender="worker", ...message)
+    {
+        if(message.length < 1) return(`${"[wrn]".yellow}[sys] ${sender}`)
+        else return(`${"[wrn]".yellow}[${sender}] ${message.join(" ")}`);
+    }
+    static Error(sender="worker", ...message)
+    {
+        if(message.length < 1) return(`${"[err]".red}[sys] ${sender}`)
+        else return(`${"[err]".red}[${sender}] ${message.join(" ")}`);
+    }
+    static Unformatted(...message)
+    {
+        return [...message].join();
+    }
+}
+
 export class PresetOutput
 {
     constructor(name)
