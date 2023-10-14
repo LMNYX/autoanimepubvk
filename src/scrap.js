@@ -162,7 +162,7 @@ async function SeekNewPost (isExplicit)
             message: msg
         });
 
-        formatAddAndOutput("Posted to vk.");
+        formatAddAndOutput("Posted to vk. (" + (isExplicit ? "NSFW" : "SFW") + ")");
 
     }
 };
@@ -279,6 +279,20 @@ async function handleCommand(command)
 
     switch(cmd)
     {
+        case "forcepost":
+            if (args.length < 1)
+            {
+                formatAddAndOutput("Usage: forcepost <nsfw/sfw>");
+                break;
+            }
+            try
+            {
+                await SeekNewPost(args[0] == "nsfw");
+            } catch (e)
+            {
+                formatAddAndOutput("ERROR: " + e.message);
+            }
+            break;
         case "delay":
             if (args.length < 1)
             {
@@ -304,15 +318,15 @@ async function handleCommand(command)
                     {
                         case "sfw":
                             SFW_FORBIDDEN_TAGS.push(args[2]);
-                            formatAddAndOutput(`Added ${args[2]} to SFW forbidden tags.`, 'debug');
+                            formatAddAndOutput(`Added ${args[2]} to SFW tags.`, 'debug');
                             break;
                         case "nsfw":
                             NSFW_FORBIDDEN_TAGS.push(args[2]);
-                            formatAddAndOutput(`Added ${args[2]} to NSFW forbidden tags.`, 'debug');
+                            formatAddAndOutput(`Added ${args[2]} to NSFW tags.`, 'debug');
                             break;
                         case "general":
                             GENERAL_FORBIDDEN_TAGS.push(args[2]);
-                            formatAddAndOutput(`Added ${args[2]} to GENERAL forbidden tags.`, 'debug');
+                            formatAddAndOutput(`Added ${args[2]} to GENERAL tags.`, 'debug');
                             break;
                         default:
                             break;
