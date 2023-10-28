@@ -1,6 +1,6 @@
-# Shepherd Core
+# Automatic Waifu Pictures Community VK.COM    
 
-A core for browser automatization, made by me, for my projects.
+Automatically pulls posts from gelbooru and posts them on VK.com community, both SFW and NSFW versions.
 
 ## Build and Run
 
