@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: boobspics-web
+    image: auto-anime-community
     volumes:
       - ./:/usr/src/autovk
     container_name: autovk
