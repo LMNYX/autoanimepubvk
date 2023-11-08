@@ -1,0 +1,15 @@
+version: '3'
+services:
+  bot:
+    image: alpine
+    volumes:
+      - ./:/usr/src/vkscrapper
+    container_name: autoanime-vk
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    environment:
+      - VK_GROUP_SAFE_ID=$VK_GROUP_SAFE_ID
+      - VK_GROUP_UNSAFE_ID=$VK_GROUP_UNSAFE_ID
+      - VK_TOKEN=$VK_GROUP_UNSAFE_ID
+    build: .

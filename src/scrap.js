@@ -133,7 +133,6 @@ async function SeekNewPost (isExplicit)
         var image = await axios.get(parsedData.file_url, { responseType: 'arraybuffer' });
         var buffer = Buffer.from(image.data, 'binary');
 
-
         var upload = await vk.upload.wallPhoto({
             source: {
                 value: buffer,
@@ -221,6 +220,18 @@ async function SetDescription(group_id, description)
         group_id: group_id,
         description: description
     });
+}
+
+async function uploadStories(group_id, image)
+{
+    var upload = await vk.upload.storiesPhoto({
+        source: {
+            value: image,
+            filename: 'image.png'
+        },
+        group_id: group_id
+    });
+    return upload.toString();
 }
 
 var DELAY = 3600000;
